@@ -16,7 +16,7 @@ namespace ConsoleCalculator
                 decimal input2;
                 decimal output;
 
-                Console.Write("------Console Calculator------\n\n" +
+                Console.Write("\n------Console Calculator------\n\n" +
                           "This is a simple calculation program\n" +
                           "to calculate +, -, * and /.\n\n");
 
