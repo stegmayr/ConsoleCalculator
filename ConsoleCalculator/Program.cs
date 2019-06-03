@@ -57,8 +57,9 @@ namespace ConsoleCalculator
 
                     exitQ = Console.ReadLine();
 
-                switch (exitQ)
+                switch (exitQ.ToUpper())
                 {
+                    case "QUIT":
                     case "EXIT":
                         keepAlive = false;
                         break;
@@ -100,7 +101,10 @@ namespace ConsoleCalculator
         static decimal Division(decimal input1, decimal input2)
         {
             decimal sum;
-
+            if(input2 == 0)
+            {
+                
+            }
             sum = input1 / input2;
 
             return sum;
