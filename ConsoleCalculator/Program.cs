@@ -14,7 +14,7 @@ namespace ConsoleCalculator
                 string mathOp;
                 decimal input1;
                 decimal input2;
-                decimal output;
+                decimal sum = 0;
 
                 Console.Write("\n------Console Calculator------\n\n" +
                           "This is a simple calculation program\n" +
@@ -31,20 +31,16 @@ namespace ConsoleCalculator
                 switch(mathOp)
                 {
                     case "+":
-                        output = input1 + input2;
-                        Console.WriteLine(input1 + " " + mathOp + " " + input2 + " = " + output);
+                        sum = Addition(input1, input2);
                         break;
                     case "-":
-                        output = input1 - input2;
-                        Console.WriteLine(input1 + " " + mathOp + " " + input2 + " = " + output);
+                        sum = Subtraction(input1, input2);
                         break;
                     case "*":
-                        output = input1 * input2;
-                        Console.WriteLine(input1 + " " + mathOp + " " + input2 + " = " + output);
+                        sum = Multiplication(input1, input2);
                         break;
                     case "/":
-                        output = input1 / input2;
-                        Console.WriteLine(input1 + " " + mathOp + " " + input2 + " = " + output);
+                        sum = Division(input1, input2);
                         break;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -54,23 +50,61 @@ namespace ConsoleCalculator
 
                 }
 
+                Console.WriteLine($"\n{input1}{mathOp}{input2}={sum}");
+
                 Console.Write("\nPress Enter if you want to restart or\n" +
                               "type EXIT if you want to quit: ");
 
-                    exitQ = (Console.ReadLine());
+                    exitQ = Console.ReadLine();
 
-                    switch (exitQ)
-                    {
-                        case "EXIT":
-                            keepAlive = false;
-                            break;
-                        default:
-                            Console.Clear();
-                            break;
-                    }
+                switch (exitQ)
+                {
+                    case "EXIT":
+                        keepAlive = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        break;
+                }
                 
             }
-        }
+        } // End of Main
 
-    }
-}
+        static decimal Addition(decimal input1, decimal input2)
+        {
+            decimal sum;
+
+            sum = input1 + input2;
+
+            return sum;
+        } // End Addition 
+
+        static decimal Subtraction(decimal input1, decimal input2)
+        {
+            decimal sum;
+
+            sum = input1 - input2;
+
+            return sum;
+        } // End Subtraction
+
+        static decimal Multiplication(decimal input1, decimal input2)
+        {
+            decimal sum;
+
+            sum = input1 * input2;
+
+            return sum;
+        } // End Multiplication
+
+        static decimal Division(decimal input1, decimal input2)
+        {
+            decimal sum;
+
+            sum = input1 / input2;
+
+            return sum;
+        } // End Division
+
+    } // End of class Program
+} // End of namespace
