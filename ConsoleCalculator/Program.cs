@@ -66,7 +66,11 @@ namespace ConsoleCalculator
                 
             }
         } // End of Main
-
+       
+        /// <summary>
+        /// Asks for a number and assures the user enters a number in didgits.
+        /// </summary>
+        /// <returns></returns>
         static decimal askForDecimal()
         {
             bool notANumber = true;
