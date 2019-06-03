@@ -78,7 +78,7 @@ namespace ConsoleCalculator
             sum = input1 + input2;
 
             return sum;
-        } // End Addition 
+        }  
 
         static decimal Subtraction(decimal input1, decimal input2)
         {
@@ -87,7 +87,7 @@ namespace ConsoleCalculator
             sum = input1 - input2;
 
             return sum;
-        } // End Subtraction
+        } 
 
         static decimal Multiplication(decimal input1, decimal input2)
         {
@@ -96,19 +96,27 @@ namespace ConsoleCalculator
             sum = input1 * input2;
 
             return sum;
-        } // End Multiplication
+        } 
 
         static decimal Division(decimal input1, decimal input2)
         {
-            decimal sum;
-            if(input2 == 0)
+
+            decimal sum = 0;
+
+            if (input2 == 0)
             {
-                
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nDivide with 0 is not possible and therefore your awnser will be sett to 0!");
+                Console.ResetColor();
             }
+            else
+            {
             sum = input1 / input2;
+            }
 
             return sum;
-        } // End Division
 
-    } // End of class Program
+        }
+
+    } // End of Program
 } // End of namespace
