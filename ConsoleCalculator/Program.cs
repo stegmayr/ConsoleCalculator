@@ -16,17 +16,14 @@ namespace ConsoleCalculator
                 decimal input2;
                 decimal sum = 0;
 
-                Console.Write("\n------Console Calculator------\n\n" +
-                          "This is a simple calculation program\n" +
-                          "to calculate +, -, * and /.\n\n");
+                Console.Write($"\n------Console Calculator------\n\nThis is a simple calculation program to calculate +, -, * and /.\n\n");
 
-                Console.Write("Type in your first number: ");
-                input1 = decimal.Parse(Console.ReadLine());
-                Console.Write("Type in a character for the mathematical\n" +
-                              "operation you like to use: ");
+                input1 = askForDecimal();
+
+                Console.Write("\nType in a character for the mathematical operation you like to use: ");
                 mathOp = Console.ReadLine();
-                Console.Write("Type in your second number: ");
-                input2 = decimal.Parse(Console.ReadLine());
+
+                input2 = askForDecimal();
 
                 switch(mathOp)
                 {
@@ -44,7 +41,7 @@ namespace ConsoleCalculator
                         break;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("That is not a valid mathematical operation!");
+                        Console.WriteLine("\nThat is not a valid mathematical operation!");
                         Console.ResetColor();
                         break;
 
@@ -52,8 +49,7 @@ namespace ConsoleCalculator
 
                 Console.WriteLine($"\n{input1}{mathOp}{input2}={sum}");
 
-                Console.Write("\nPress Enter if you want to restart or\n" +
-                              "type EXIT if you want to quit: ");
+                Console.Write("\nPress Enter if you want to restart or type EXIT if you want to quit: ");
 
                     exitQ = Console.ReadLine();
 
@@ -70,6 +66,32 @@ namespace ConsoleCalculator
                 
             }
         } // End of Main
+
+        static decimal askForDecimal()
+        {
+            bool notANumber = true;
+            bool didParse = false;
+            decimal input = 0;
+
+            do
+            {
+                Console.Write("\nEnter a number: ");
+                didParse = decimal.TryParse(Console.ReadLine(), out input);
+
+                if (!didParse)
+                {
+                    Console.WriteLine("Can not understand the number you typed, use didgits.");
+                }
+                else
+                {
+                    notANumber = false;
+                }
+
+            } while (notANumber);
+
+            return input;
+            
+        }
 
         static decimal Addition(decimal input1, decimal input2)
         {
@@ -106,7 +128,7 @@ namespace ConsoleCalculator
             if (input2 == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nDivide with 0 is not possible and therefore your awnser will be sett to 0!");
+                Console.WriteLine("\nDivide with 0 is not possible and therefore your awnser will be set to 0!");
                 Console.ResetColor();
             }
             else
